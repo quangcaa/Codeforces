@@ -5,18 +5,20 @@ using namespace std ;
 int main()
 {
     string s ; cin >> s ;
-    int cnt[256] ;
+    int cnt[256] = {0} ;
     int res = 0 ;
     for(int i=0 ; i<s.length() ; i++)
     {
         char x = s[i] ;
-        if(cnt[x] == 0)
+        cnt[x]++ ;
+    }
+    for(int i=0 ; i<256 ; i++)
+    {
+        if(cnt[i] >= 1)
         {
-            cnt[x] = 1 ;
-            res++ ;
+            res ++ ;
         }
     }
-
     string fm = "CHAT WITH HER!" ;
     string m = "IGNORE HIM!" ;
     if(res%2==0)
